@@ -1,11 +1,15 @@
 This repository contains the scripts to reproduce the figures in the manuscript Denaud_at_al_2024
 
 # Dependencies #
-#misha
-#shaman
-#ggpubr
-#dplyr
-#doParallel
+We suggest to install [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) and create an [environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
+
+Ensure that you have a working version of R. The scripts in this repository have been tested for version 4.0.5 (2021-03-31).
+Install the following packages:
+misha, shaman, ggpubr, dplyr, doParallel.
+
+conda install bioconda::r-misha
+
+
 #bash: identify, convert
 
 scriptsDir=${PWD}/scripts/
