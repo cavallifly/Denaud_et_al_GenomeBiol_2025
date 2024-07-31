@@ -4,22 +4,27 @@ This repository contains the scripts to reproduce the figures in the manuscript 
 We suggest to install [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) and create an [environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 
 Ensure that you have a working version of R. The scripts in this repository have been tested for version 4.0.5 (2021-03-31).
-Install the following packages: misha, shaman, ggpubr, dplyr, doParallel.
-For example using the commands:
+Install the following R packages: misha, shaman, ggpubr, dplyr, doParallel.
+Install the following bash commands: convert (part of imagemagick) and identify.
+For example, you can use the commands:
 ```
 conda install -y bioconda::r-misha
 conda install -y bioconda::r-shaman
 conda install -y conda-forge::r-ggpubr
 conda install -y conda-forge::r-dplyr
 conda install -y conda-forge::r-doparallel
+conda install -y conda-forge::imagemagick
+conda install -y conda-forge::identify
 ```
 
-#bash: identify, convert
-
-scriptsDir=${PWD}/scripts/
-
-# list_of_PcG_physical_domains_from_Sexton_et_al_2012_dm6.bed
-samples="larvae_DWT larvae_DPRE1 larvae_double LD_gypsy2"
+# Input data #
+Next, you should download the misha tracks from GEO for the observed counts in the directory HiC_analysis/mishaDB/trackdb/dm6/tracks/hic/ of this repository.
+- GSM7888066	Larv WT HiC Repli1
+- GSM7888067	Larv WT HiC Repli2
+- GSM7888068	Larv WT HiC Repli3
+- GSM7888077	Larv gypsy2 insertion HiC Repli1
+- GSM7888078	Larv gypsy2 insertion HiC Repli2
+- GSM7888079	Larv gypsy2 insertion HiC Repli3
 
 # Generate the modified dm6 reference genome
 #bash     ${scriptsDir}/01_editFasta.sh &> 01_editFasta.out
