@@ -25,30 +25,22 @@ Next, you should download the misha tracks from GEO for the observed counts in t
 - GSM7888077	Larv gypsy2 insertion HiC Repli1
 - GSM7888078	Larv gypsy2 insertion HiC Repli2
 - GSM7888079	Larv gypsy2 insertion HiC Repli3
+These tracks have been obtained using the "scHiC2" pipeline in T. Nagano et al., Cell-cycle dynamics of chromosomal organization at single-cell resolution. Nature 547, 61–67 (2017). For the
+samples of the PRE1_UP condition, you should run the following command to generate the modified dm6 assembly:
+```
+cd HiC_analysis
+bash     ./scripts/01_editFasta.sh &> 01_editFasta.out
+```
 
-# Generate the modified dm6 reference genome
-#bash     ${scriptsDir}/01_editFasta.sh &> 01_editFasta.out
-
-# Mapping of the datasets and the mishaDB entries for the observed tracks
-# have been obtained using the "shHiC2" pipeline in https://github.com/tanaylab/schic2
-# T. Nagano, Y. Lubling, C. Várnai, C. Dudley, W. Leung, Y. Baran, N. M. Cohen, S. Wingett, P. Fraser, A. Tanay,
-# Cell-cycle dynamics of chromosomal organization at single-cell resolution. Nature 547, 61–67 (2017).
-
-# Compute statistics on the mapped samples
-#bash     ${scriptsDir}/01_computeValidPairsFromTracks.sh &> 01_computeValidPairsFromTracks.out
-#bash     ${scriptsDir}/01_count_readPairs_from_fastq.sh  &> 01_count_readPairs_from_fastq.out
+Now, you are ready to run the scripts in HiC_analysis/scripts. To do so, you can access the directory HiC_analysis of this repository using
+```
+cd HiC_analysis
+```
+and run one after the other the following commands:
+```
+scriptsDir=./scripts/
 
 # Compute the shuffled (expected) tracks and the shaman Hi-C scores
-# The misha tracks for the observed counts must be downloaded from following
-# GEO entries:
-#GSM7888066	Larv WT HiC Repli1
-#GSM7888067	Larv WT HiC Repli2
-#GSM7888068	Larv WT HiC Repli3
-#GSM7888077	Larv gypsy2 insertion HiC Repli1
-#GSM7888078	Larv gypsy2 insertion HiC Repli2
-#GSM7888079	Larv gypsy2 insertion HiC Repli3
-# ADD missing GEO accession codes XXX
-
 Rscript ${scriptsDir}/02_generateShuffleTrack.R &>> 02_generateShuffleTrack.out
 Rscript ${scriptsDir}/03_computeScoreTrack.R    &>> 03_computeScoreTrack.out
 
@@ -57,7 +49,7 @@ Rscript ${scriptsDir}/04_computeInsulationTracks.R        &>> 04_computeInsulati
 Rscript ${scriptsDir}/05_computeDownSampledTracks.R       &>> 05_computeDownSampledTracks.out
 Rscript ${scriptsDir}/06_computeDiffScoreTrack_parallel.R &>> 06_computeDiffScoreTrack_parallel.out
 
-# Data and Figures for each figure panel
+# Generate data and Figures for each figure panel
 Rscript ${scriptsDir}/07_ScoreMapsPlot_Fig1C.R                 &>> 07_ScoreMapsPlot_Fig1C.out
 Rscript ${scriptsDir}/08_INSplot_Fig1D.R                       &>> 08_INSplot_Fig1D.out
 Rscript ${scriptsDir}/09_INSquantification_Fig1E.R             &>> 09_INSquantification_Fig1E.out
@@ -75,9 +67,10 @@ Rscript ${scriptsDir}/17b_ScoreMapsQuantification_Fig2Fb.R     &>>  17b_ScoreMap
 # Obtain the triangular maps
 bash ${scriptsDir}/18_generate_triangular_pngs.sh &> 18_generate_triangular_pngs.out
 
-# Move results in folders
+# Move results in the data and figures folders
 mkdir -p Data_for_figures
 mkdir -p Figure_panels
 
 mv *.png *.pdf Figure_panels
 mv *.tab *.tsv Data_for_figures/
+```
