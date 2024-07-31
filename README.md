@@ -6,9 +6,13 @@ We suggest to install [conda](https://conda.io/projects/conda/en/latest/user-gui
 Ensure that you have a working version of R. The scripts in this repository have been tested for version 4.0.5 (2021-03-31).
 Install the following packages: misha, shaman, ggpubr, dplyr, doParallel.
 For example using the commands:
-'''
-conda install bioconda::r-misha
-'''
+```
+conda install -y bioconda::r-misha
+conda install -y bioconda::r-shaman
+conda install -y conda-forge::r-ggpubr
+conda install -y conda-forge::r-dplyr
+conda install -y conda-forge::r-doparallel
+```
 
 #bash: identify, convert
 
