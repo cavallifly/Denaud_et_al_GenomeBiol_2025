@@ -1,6 +1,6 @@
 This repository contains the scripts to reproduce the figures in the manuscript Denaud_at_al_2024
 
-### What do you need to run the analysis and obtain the figures? (AKA Dependencies) ###
+# Dependencies #
 #misha
 #shaman
 #ggpubr
