@@ -4,19 +4,13 @@ This repository contains the scripts to reproduce the figures of the RNA-seq ana
 We suggest to install [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) and create an [environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 
 Ensure that you have a working version of R. The scripts in this repository have been tested for version 4.0.5 (2021-03-31).
-Install the following R packages: misha, shaman, ggpubr, dplyr, doParallel.
-Install the following bash commands: convert (part of imagemagick) and identify.
+Install the following R packages: packacge1, packacge2,...etc.
+Install the following bash commands: command1 (part of program1), command2,...etc.
 For example, you can use the commands:
 ```
-conda install -y bioconda::r-misha
-conda install -y bioconda::r-shaman
-conda install -y conda-forge::r-ggpubr
-conda install -y conda-forge::r-dplyr
-conda install -y conda-forge::r-doparallel
-conda install -y conda-forge::imagemagick
-conda install -y conda-forge::identify
+conda install -y package1
 ```
-
+<!---
 # Input data #
 Next, you should download the misha tracks from GEO for the observed counts in the directory HiC_analysis/mishaDB/trackdb/dm6/tracks/hic/ of this repository.
 - GSM7888066	Larv WT HiC Repli1
@@ -78,6 +72,7 @@ mv *.tab *.tsv Data_for_figures/
 
 Once the scripts are finished, you will obtain the panels and the data points used to obtain them for all the Figures in Denaud_at_al_2024.
 To obtain the final version of the figures the panels have been assembled using the PowerPoint program.
+--->
 
 ## Contributions ##
 The code in this repository has been developed at the [Cavalli Lab](https://www.igh.cnrs.fr/en/research/departments/genome-dynamics/chromatin-and-cell-biology) 
