@@ -69,10 +69,10 @@ mkdir -p Figure_panels
 mv *.png *.pdf Figure_panels
 mv *.tab *.tsv Data_for_figures/
 ```
---->
+
 Once the scripts are finished, you will obtain the panels and the data points used to obtain them for all the Figures in Denaud_at_al_2024.
 To obtain the final version of the figures the panels have been assembled using the PowerPoint program.
-
+--->
 ## Contributions ##
 The code in this repository has been developed at the [Cavalli Lab](https://www.igh.cnrs.fr/en/research/departments/genome-dynamics/chromatin-and-cell-biology) 
 with the contributions of Marco Di Stefano, Gonzalo Sabaris, and Giorgio L. Papadopoulos.
