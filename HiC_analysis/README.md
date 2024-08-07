@@ -25,6 +25,13 @@ Next, you should download the misha tracks from GEO for the observed counts in t
 - GSM7888077	Larv gypsy2 insertion HiC Repli1
 - GSM7888078	Larv gypsy2 insertion HiC Repli2
 - GSM7888079	Larv gypsy2 insertion HiC Repli3
+- GSM8444487     Larv Double  Repli1    
+- GSM8444488     Larv Double  Repli2      
+- GSM8444489     Larv Double  Repli3      
+- GSM8444490     Larv deltaPRE1 Repli1      
+- GSM8444491     Larv deltaPRE1 Repli2      
+- GSM8444492     Larv PRE1_UP Repli1      
+- GSM8444493     Larv PRE1_UP Repli2
 
 These tracks have been obtained using the "scHiC2" pipeline in T. Nagano et al., Cell-cycle dynamics of chromosomal organization at single-cell resolution. Nature 547, 61–67 (2017). For the
 samples of the PRE1_UP condition, you should run the following command to generate the modified dm6 assembly:
