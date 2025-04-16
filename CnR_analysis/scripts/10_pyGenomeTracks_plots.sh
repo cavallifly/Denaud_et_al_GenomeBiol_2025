@@ -1,3 +1,8 @@
+# Download the genes.gtf file from illumina database
+wget https://s3.amazonaws.com/igenomes.illumina.com/Drosophila_melanogaster/UCSC/dm6/Drosophila_melanogaster_UCSC_dm6.tar.gz
+tar -xvf Drosophila_melanogaster_UCSC_dm6.tar.gz
+rsync -avz Drosophila_melanogaster/UCSC/dm6/Annotation/Genes/genes.gtf genes_UCSC_dm6.gtf
+
 pyGenomeTracks --tracks pyGenomeTracks_Fig1B.ini --region chr2L:15212390-16800000 -o Denaud_GB_Figure_1b.svg
 
 #pyGenomeTracks_Fig1B.ini:file = ./IgG_WT_R1_R2_042021_s_dedup.bw
