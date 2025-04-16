@@ -1,28 +1,26 @@
-setwd("DEseq2/")
 
 library("R.utils")
 
-# Installing packages
-if(!requireNamespace("BiocManager", quietly = TRUE))
-{
-    install.packages("BiocManager")
-}
-BiocManager::install("Rsubread")
-BiocManager::install("DESeq2")
-BiocManager::install("EnhancedVolcano")
+#if (!requireNamespace("BiocManager", quietly = TRUE))
+#  install.packages("BiocManager")
 
-
+# BiocManager::install("Rsubread")
 library("Rsubread")
+# install.packages('xlsx')
 library(xlsx)
 library(tidyverse)
 library(data.table)
-library(EnhancedVolcano)
+
+#if (!requireNamespace("BiocManager", quietly = TRUE))
+#  install.packages("BiocManager")
+
+#BiocManager::install("DESeq2")
 library("DESeq2")
 
 directory <- "./subreads_counts/"
 
 #read table genes for the gene names
-genes <- read.table("FB_genes_symbols.tsv", header = TRUE)
+genes <- read.table("./scripts/FB_genes_symbols.tsv", header = TRUE)
 
 #create sample table for DEseq
 sampleFiles <- grep(".txt", list.files(directory),value=TRUE)
@@ -82,26 +80,11 @@ final_D_vs_WT_padj0.01_FC2 <- final_D_vs_WT[which(final_D_vs_WT$padjust < 0.01 &
 write.table(final_D_vs_WT_padj0.01_FC2, file="final_D_vs_WT_padj0.01_FC2.tsv", sep="\t", row.names=FALSE, quote=FALSE)
 
 
-
-pdf(file = "./Volcano_plot.pdf")   # The directory you want to save the file in
-EnhancedVolcano(res_DvsWT,
-                lab = rownames(res),
-                x = 'log2FoldChange',
-                y = 'padj',
-                title = 'D vs WT',
-                selectLab = c('FBgn0005677','FBgn0028523','FBgn0032586','FBgn0020416','FBgn0020415','FBgn0020414','FBgn0000307','FBgn0028506','FBgn0025678','FBgn0265578'),
-                labCol = 'black',
-                labFace = 'bold',
-                drawConnectors = TRUE,
-                lengthConnectors = unit(0.02, 'npc'),
-                widthConnectors = 1.0,
-                colConnectors = 'black',
-                boxedLabels = TRUE,
-                pCutoff = 0.01,
-                FCcutoff = 1,
-                pointSize = 2.0,
-                labSize = 4.0)
-dev.off() 
+# if (!require("BiocManager", quietly = TRUE))
+#   install.packages("BiocManager")
+# 
+# BiocManager::install("EnhancedVolcano")
+library(EnhancedVolcano)
 
 pdf(file = "./Volcano_plot_2.pdf")   # The directory you want to save the file in
 EnhancedVolcano(res_DvsWT,
@@ -124,3 +107,4 @@ EnhancedVolcano(res_DvsWT,
                 col=c('black', 'black', 'black', 'red3'),
                 labSize = 4.0)
 dev.off() 
+
