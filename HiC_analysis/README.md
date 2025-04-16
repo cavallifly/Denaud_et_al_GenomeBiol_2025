@@ -17,6 +17,12 @@ conda install -y conda-forge::imagemagick
 conda install -y conda-forge::identify
 ```
 
+Download the script [hicpro2huicebox.sh](https://github.com/nservant/HiC-Pro/blob/master/bin/utils/hicpro2juicebox.sh) from the hicpro repository and the juicer_tools_1.22.01.jar using 
+```
+wget https://s3.amazonaws.com/hicfiles.tc4ga.com/public/juicer/juicer_tools_1.22.01.jar
+```
+and place them in the ./scripts/ folder.
+
 # Input data #
 Next, you should download the misha tracks from GEO for the observed counts in the directory HiC_analysis/mishaDB/trackdb/dm6/tracks/hic/ of this repository.
 - GSM7888066	Larv WT HiC Repli1
