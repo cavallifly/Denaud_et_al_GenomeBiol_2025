@@ -26,7 +26,9 @@ echo "Insertion ${iTargetChrom}:${iStart}-${iEnd} Length ${iLength}"
 #NOTE: the inserted sequence is the PRE1 sequence +/ 50nt, that are the result of the recombination process
 echo ${insertSeq}
 
-inFile=/zdata/data/DBs/Drosophila_melanogaster/UCSC/dm6/Sequence/Bowtie2Index/genome.fa
+wget https://s3.amazonaws.com/igenomes.illumina.com/Drosophila_melanogaster/UCSC/dm6/Drosophila_melanogaster_UCSC_dm6.tar.gz
+tar -xvf Drosophila_melanogaster_UCSC_dm6.tar.gz
+inFile=./Drosophila_melanogaster/UCSC/dm6/Sequence/Bowtie2Index/genome.fa
 lLength=$(head -2 $inFile | tail -1 | awk '{print(length($0))}')
 outFile=${mutation}.fa
 rm -fr ${outFile}
