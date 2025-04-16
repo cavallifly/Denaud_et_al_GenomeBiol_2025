@@ -40,7 +40,6 @@ do
 		sed -e "s/XXXcbminXXX/${cbmin}/g" -e "s/XXXxminXXX/${xmin}/g" -e "s/XXXxmaxXXX/${xmax}/g" -e "s/XXXyminXXX/${ymin}/g" -e "s/XXXymaxXXX/${ymax}/g" -e "s/XXXcbmaxXXX/${cbmax}/g" -e "s/XXXsizeXXX/${size}/g" ./scripts/20_plot_scaleNormalizedMaps.gp | gnuplot
 		file=data.ps
 		ps2pdf ${file}
-		./scripts/pdfcrop --ini --margin 0 ${file%.ps}.pdf _tmp_${file%.ps}.pdf #&> /dev/null    
 		mv _tmp_${file%.ps}.pdf ${file%.ps}.pdf
 		rm $file	
 		mv data.pdf ${outFile}
