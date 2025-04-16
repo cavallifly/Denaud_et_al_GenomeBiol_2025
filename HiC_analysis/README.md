@@ -1,4 +1,4 @@
-This repository contains the scripts to reproduce the figures of the Hi-C analysis in the manuscript Denaud_at_al_2024
+This repository contains the scripts to reproduce the figures in the manuscript Denaud_at_al_2024
 
 # Dependencies #
 We suggest to install [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) and create an [environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
@@ -25,13 +25,13 @@ Next, you should download the misha tracks from GEO for the observed counts in t
 - GSM7888077	Larv gypsy2 insertion HiC Repli1
 - GSM7888078	Larv gypsy2 insertion HiC Repli2
 - GSM7888079	Larv gypsy2 insertion HiC Repli3
-- GSM8444487     Larv Double  Repli1    
-- GSM8444488     Larv Double  Repli2      
-- GSM8444489     Larv Double  Repli3      
-- GSM8444490     Larv deltaPRE1 Repli1      
-- GSM8444491     Larv deltaPRE1 Repli2      
-- GSM8444492     Larv PRE1_UP Repli1      
-- GSM8444493     Larv PRE1_UP Repli2
+- GSM8444487     Larv Double HiC Repli1
+- GSM8444488     Larv Double HiC Repli2
+- GSM8444489     Larv Double HiC Repli3
+- GSM8444490     Larv deltaPRE1 HiC Repli1
+- GSM8444491     Larv delatPRE1 HiC Repli2
+- GSM8444492     Larv PRE1_UP HiC Repli1
+- GSM8444493     Larv PRE1_UP HiC Repli2
 
 These tracks have been obtained using the "scHiC2" pipeline in T. Nagano et al., Cell-cycle dynamics of chromosomal organization at single-cell resolution. Nature 547, 61–67 (2017). For the
 samples of the PRE1_UP condition, you should run the following command to generate the modified dm6 assembly:
@@ -63,29 +63,34 @@ Rscript ${scriptsDir}/08_INSplot_Fig1D.R                       &>> 08_INSplot_Fi
 Rscript ${scriptsDir}/09_INSquantification_Fig1E.R             &>> 09_INSquantification_Fig1E.out
 Rscript ${scriptsDir}/10_DiffScoreMapsPlot_Fig1F.R             &>> 10_DiffScoreMapsPlot_Fig1F.out
 Rscript ${scriptsDir}/11_ScoreMapsQuantification_Fig1G.R       &>> 11_ScoreMapsQuantification_Fig1G.out
-Rscript ${scriptsDir}/12a_get_obsContacts_PcG_domains_Fig1H.R  &>> 12a_get_obsContacts_PcG_domains_Fig1H.out
-Rscript ${scriptsDir}/12b_plot_obsContacts_PcG_domains_Fig1H.R &>> 12b_plot_obsContacts_PcG_domains_Fig1H.out
-Rscript ${scriptsDir}/13_ScoreMapsPlot_Fig2C.R                 &>> 13_ScoreMapsPlot_Fig2C.out
-Rscript ${scriptsDir}/14_INSplot_Fig2D.R                       &>> 14_INSplot_Fig2D.out
-Rscript ${scriptsDir}/15_INSquantification_Fig2E.R             &>> 15_INSquantification_Fig2E.out
-Rscript ${scriptsDir}/16_DiffScoreMapsPlot_Fig2G.R             &>> 16_DiffScoreMapsPlot_Fig2G.out
-Rscript ${scriptsDir}/17a_ScoreMapsQuantification_Fig2Fa.R     &>>  17a_ScoreMapsQuantification_Fig2Fa.out
-Rscript ${scriptsDir}/17b_ScoreMapsQuantification_Fig2Fb.R     &>>  17b_ScoreMapsQuantification_Fig2Fb.out
+Rscript ${scriptsDir}/12_ScoreMapsPlot_Fig2C.R                 &>> 12_ScoreMapsPlot_Fig2C.out
+Rscript ${scriptsDir}/13_INSplot_Fig2D.R                       &>> 13_INSplot_Fig2D.out
+Rscript ${scriptsDir}/14_INSquantification_Fig2E.R             &>> 14_INSquantification_Fig2E.out
+Rscript ${scriptsDir}/15_DiffScoreMapsPlot_Fig2G.R             &>> 15_DiffScoreMapsPlot_Fig2G.out
+Rscript ${scriptsDir}/16a_ScoreMapsQuantification_Fig2Fa.R     &>> 16a_ScoreMapsQuantification_Fig2Fa.out
+Rscript ${scriptsDir}/16b_ScoreMapsQuantification_Fig2Fb.R     &>> 16b_ScoreMapsQuantification_Fig2Fb.out
+bash    ${scriptsDir}/17_retrieve_points_from_mishaDB.sh       &>> 17_retrieve_points_from_mishaDB.out
+bash    ${scriptsDir}/18_convert_ints2hic.sh                   &>> 18_convert_ints2hic.out 
+bash    ${scriptsDir}/19_dump_scaleNormalizedMaps.sh           &>> 19_dump_scaleNormalizedMaps.out
+bash    ${scriptsDir}/20_plot_scaleNormalizedMaps.sh           &>> 20_plot_scaleNormalizedMaps.out
 
 # Obtain the triangular maps
-bash ${scriptsDir}/18_generate_triangular_pngs.sh &> 18_generate_triangular_pngs.out
+bash ${scriptsDir}/21_generate_triangular_pngs.sh &> 21_generate_triangular_pngs.out
 
-# Move results in the data and figures folders
+# Move results in folders
 mkdir -p Data_for_figures
 mkdir -p Figure_panels
+mkdir -p intsFiles
+mkdir -p hicFiles
 
 mv *.png *.pdf Figure_panels
 mv *.tab *.tsv Data_for_figures/
+mv *.ints intsFiles
+mv *.hic  hicFiles
 ```
 
 Once the scripts are finished, you will obtain the panels and the data points used to obtain them for all the Figures in Denaud_at_al_2024.
 To obtain the final version of the figures the panels have been assembled using the PowerPoint program.
 
 ## Contributions ##
-The code in this repository has been developed at the [Cavalli Lab](https://www.igh.cnrs.fr/en/research/departments/genome-dynamics/chromatin-and-cell-biology) 
-with the contributions of Marco Di Stefano, Gonzalo Sabaris, and Giorgio L. Papadopoulos.
+The code in this repository has been developed at the [Cavalli Lab](https://www.igh.cnrs.fr/en/research/departments/genome-dynamics/chromatin-and-cell-biology) with the contributions of Marco Di Stefano, Gonzalo Sabaris, and Giorgio L. Papadopoulos.
