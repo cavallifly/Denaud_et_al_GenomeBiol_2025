@@ -1,25 +1,5 @@
 library(DiffBind)
-library(profileplyr)
-library(GenomicRanges)
-library(ChIPseeker)
-#BiocManager::install("TxDb.Dmelanogaster.UCSC.dm6.ensGene")
-library(TxDb.Dmelanogaster.UCSC.dm6.ensGene)
-library(clusterProfiler)
 library(ggplot2)
-library("GenomicFeatures")
-library("BRGenomics")
-library(ReactomePA)
-library(AnnotationDbi)
-library(GenomicTools.fileHandler)
-library(enrichplot)
-library(biomaRt)
-library(wordcloud)
-library(edgeR)
-library(tidyverse)
-library(rtracklayer)
-library(ggplot2)
-library(hrbrthemes)
-library(ggpmisc)
 
 comparisons <- c("Discs_WT_vs_double","Embryos_WT_vs_double")
 
@@ -54,17 +34,6 @@ for(comparison in comparisons)
 
     colors <- c("gray", "blue")
     colors <- colors[as.numeric(plot_K27me3_double$dac_dom)]
-
-    # Doing the scatter plot
-    p3 <- ggplot(plot_K27me3_double, aes(x=Conc_WT, y=Conc_Double)) +
-       geom_point(size=2) +
-       geom_point(color=colors) +
-       geom_abline(intercept = 0, slope = 1) +
-       ylab("log2 Conc. H3K27me3 - Double") +
-       xlab("log2 Conc. H3K27me3 - WT")
-    pdf(file = paste0("scatterPlot_Conc_K27me3_",comparison,".pdf")   
-    print(p3)
-    dev.off()
 
     ## Doing the MAplot
     p3_MA <- ggplot(plot_K27me3_double, aes(x=Conc, y= Fold)) +
