@@ -26,8 +26,6 @@ bash    ${scriptsDir}/06_dedupReads_using_sambamba.sh                          &
 bash    ${scriptsDir}/07_mergeAndIndexBam_using_samtools.sh                    &>> 07_mergeAndIndexBam_using_samtools.out
 bash    ${scriptsDir}/08_generateBigwig_using_deeptools.sh                     &>> 08_generateBigwig_using_deeptools.out
 Rscript ${scriptsDir}/09_diffPeak_analysis_on_H3K27me3_tracks_using_diffBind.R &>> 09_diffPeak_analysis_on_H3K27me3_tracks_using_diffBind.out
-bash    ${scriptsDir}/10_pyGenomeTracks_plots.sh                               &>> 10_pyGenomeTracks_plots.out
-
 ```
 
 
