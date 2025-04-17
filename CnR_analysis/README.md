@@ -6,24 +6,30 @@ Install the following R packages: ggplot2 and DiffBind.
 The programs pyGenomeTracks, samtools, sambamba, deeptools, and bowtie2.
 
 # Input data #
-Next, you should download the .fastq files from the GEO entry GSE274159.
+Next, you should download the .fastq files from the GEO entry GSE274157.
+From this GEO entry, you can also download directly the .bigWig tracks for all the CnR datasets generated in this work.
 
 Now, you are ready to run the scripts in ./scripts. To do so, you can access the directory RNAseq_analysis of this repository using
 ```
-cd RNAseq_analysis
+cd CnR_analysis
 ```
 and run one after the other the following commands following the messages:
 ```
 scriptsDir=./scripts/
 
-bash    ${scriptsDir}/01_fastaqc_analysis.sh                     &>> 01_fastaqc_analysis.out
-bash    ${scriptsDir}/02_multiqc_analysis.sh                     &>> 02_multiqc_analysis.out
-bash    ${scriptsDir}/03_alignReads_using_subread.sh             &>> 03_alignReads_using_subread.out
-bash    ${scriptsDir}/04_indexBam_using_samtools.sh              &>> 04_indexBam_using_samtools.out
-bash    ${scriptsDir}/05_generationCountTable_using_subreads.sh  &>> 05_generationCountTable_using_subreads.out
-Rscript ${scriptsDir}/06_DEanalysis_using_DEseq2.R               &>> 06_DEanalysis_using_DEseq2.out
-bash    ${scriptsDir}/07_merge_and_generate_bigWigs.sh           &>> 07_merge_and_generate_bigWigs.out
+bash    ${scriptsDir}/01_fastqc_analysis.sh                                    &>> 01_fastqc_analysis.out
+bash    ${scriptsDir}/02_multiqc_analysis.sh                                   &>> 02_multiqc_analysis.out
+bash    ${scriptsDir}/03_align_using_bowtie.sh                                 &>> 03_align_using_bowtie.out
+bash    ${scriptsDir}/04_filterReads_using_samtools.sh                         &>> 04_filterReads_using_samtools.out
+bash    ${scriptsDir}/05_sortReads_using_samtools.sh                           &>> 05_sortReads_using_samtools.out
+bash    ${scriptsDir}/06_dedupReads_using_sambamba.sh                          &>> 06_dedupReads_using_sambamba.out
+bash    ${scriptsDir}/07_mergeAndIndexBam_using_samtools.sh                    &>> 07_mergeAndIndexBam_using_samtools.out
+bash    ${scriptsDir}/08_generateBigwig_using_deeptools.sh                     &>> 08_generateBigwig_using_deeptools.out
+Rscript ${scriptsDir}/09_diffPeak_analysis_on_H3K27me3_tracks_using_diffBind.R &>> 09_diffPeak_analysis_on_H3K27me3_tracks_using_diffBind.out
+bash    ${scriptsDir}/10_pyGenomeTracks_plots.sh                               &>> 10_pyGenomeTracks_plots.out
+
 ```
+
 
 Once the scripts are finished, you will obtain the panels and the data points used to obtain them for all the Figures in the paper.
 To obtain the final version of the figures the panels have been assembled using the PowerPoint program.
