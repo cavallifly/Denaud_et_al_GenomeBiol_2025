@@ -4,7 +4,7 @@ then
     echo "Please specify"
     echo "1) input folder containing fq.gz files"
     echo "2) SAM output folder"
-    echo "3) Bowtie2Index folder for dm6 assembly"
+    echo "3) Bowtie2Index folder for dm6 or the PRE1_UP modified assembly"
     exit 1
 fi
 
