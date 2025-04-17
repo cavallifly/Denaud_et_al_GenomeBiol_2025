@@ -8,7 +8,7 @@ for(comparison in comparisons)
     inDir <- paste0(comparison)
     setwd(inDir)
 
-    samples <- read.delim(paste0("sample_table_",comparison,".tsv"))
+    samples <- read.delim(paste0("./scripts/sample_table_",comparison,".tsv"))
     K27me3 <- dba(sampleSheet = samples)
 
     #Counting reads in peaks, summits option is in case you want to center the counting in a range from the summit
@@ -30,7 +30,6 @@ for(comparison in comparisons)
     plot_K27me3_double <- cbind(report_K27me3, dac_dom= 1) # add column for dac ploting color
     plot_K27me3_double$Domain<- with(plot_K27me3_double, paste0(seqnames, start, end)) #merge columns to id the domains
     plot_K27me3_double[plot_K27me3_double$Domain =="chr2L1635735016487149", "dac_dom"] <- 2
-
 
     colors <- c("gray", "blue")
     colors <- colors[as.numeric(plot_K27me3_double$dac_dom)]
