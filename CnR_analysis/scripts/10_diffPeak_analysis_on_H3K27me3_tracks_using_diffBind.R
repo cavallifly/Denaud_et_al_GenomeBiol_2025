@@ -8,7 +8,7 @@ for(comparison in comparisons)
     inDir <- paste0(comparison)
     setwd(inDir)
 
-    samples <- read.delim("sample_table.tsv")
+    samples <- read.delim(paste0("sample_table_",comparison,".tsv"))
     K27me3 <- dba(sampleSheet = samples)
 
     #Counting reads in peaks, summits option is in case you want to center the counting in a range from the summit
