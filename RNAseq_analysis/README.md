@@ -25,7 +25,7 @@ Rscript ${scriptsDir}/06_DEanalysis_using_DEseq2.R               &>> 06_DEanalys
 bash    ${scriptsDir}/07_merge_and_generate_bigWigs.sh           &>> 07_merge_and_generate_bigWigs.out
 ```
 
-Once the scripts are finished, you will obtain the panels and the data points used to obtain them for all the Figures in the paper.
+Once the scripts are finished, you will obtain the panels and the data points used to obtain them for all the Figures in the paper. 
 To obtain the final version of the figures the panels have been assembled using the PowerPoint program.
 
 ## Contributions ##
