@@ -7,12 +7,6 @@ The packages subread, samtools, and deeptools.
 
 # Input data #
 Next, you should download the .fastq files from the GEO entry GSE274159.
-%- GSM8444494	WT_Repli1
-%- GSM8444495	WT_Repli2
-%- GSM8444496	WT_Repli3
-%- GSM8444497  Double Repli1
-%- GSM8444498  Double Repli2
-%- GSM8444499  Double Repli3
 
 Now, you are ready to run the scripts in ./scripts. To do so, you can access the directory RNAseq_analysis of this repository using
 ```
