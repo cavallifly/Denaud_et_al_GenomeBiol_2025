@@ -1,0 +1,5 @@
+SampleID	Tissue	Factor	Condition	Treatment	Replicate	bamReads	ControlID	bamControl	Peaks	PeakCaller
+K27me3_WT_R1	LD	K27me3	WT	WT	1	./data/WT_Disc_17_EKDL210008915-1a_HTF5CDSX2_L1_s_dedup.bam	IgG	./data/WT_IgG1_EKDL210004416-1a_HFJKGDSX2_L1_s_dedup.bam	./scripts/list_of_PcG_physical_domains_from_Sexton_et_al_2012_dm6.bed	bed
+K27me3_WT_R2	LD	K27me3	WT	WT	2	./data/WT_Disc_18_EKDL210008916-1a_HTF5CDSX2_L1_s_dedup.bam	IgG	./data/WT_IgG1_EKDL210004416-1a_HFJKGDSX2_L1_s_dedup.bam	./scripts/list_of_PcG_physical_domains_from_Sexton_et_al_2012_dm6.bed	bed
+K27me3_Double_R1	LD	K27me3	Double	Double	1	./data/Doub_19_EKDL210008917-1a_HTF5CDSX2_L1_s_dedup.bam	IgG	./data/WT_IgG1_EKDL210004416-1a_HFJKGDSX2_L1_s_dedup.bam	./scripts/list_of_PcG_physical_domains_from_Sexton_et_al_2012_dm6.bed	bed
+K27me3_Double_R2	LD	K27me3	Double	Double	2	./data/Doub_20_EKDL210008918-1a_HTF5CDSX2_L2_s_dedup.bam	IgG	./data/WT_IgG1_EKDL210004416-1a_HFJKGDSX2_L1_s_dedup.bam	./scripts/list_of_PcG_physical_domains_from_Sexton_et_al_2012_dm6.bed	bed
