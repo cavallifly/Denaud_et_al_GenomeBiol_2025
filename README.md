@@ -39,13 +39,6 @@ Next, you should download the misha tracks from GEO for the observed counts in t
 - GSM8444492     Larv PRE1_UP HiC Repli1
 - GSM8444493     Larv PRE1_UP HiC Repli2
 
-These tracks have been obtained using the "scHiC2" pipeline in T. Nagano et al., Cell-cycle dynamics of chromosomal organization at single-cell resolution. Nature 547, 61–67 (2017). For the
-samples of the PRE1_UP condition, you should run the following command to generate the modified dm6 assembly:
-```
-cd HiC_analysis
-bash     ./scripts/01_editFasta.sh &> 01_editFasta.out
-```
-
 Now, you are ready to run the scripts in HiC_analysis/scripts. To do so, you can access the directory HiC_analysis of this repository using
 ```
 cd HiC_analysis
