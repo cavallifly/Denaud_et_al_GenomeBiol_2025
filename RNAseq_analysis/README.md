@@ -1,5 +1,9 @@
 # Dependencies #
-We suggest to install [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) and create an [environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
+We suggest to install [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) and create an [environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html). 
+
+Ensure that you have a working version of R. The scripts in this repository have been tested for version 4.0.5 (2021-03-31).
+Install the following R packages: R.utils, Rsubread, xlsx, tidyverse, data.table, DESeq2, EnhancedVolcano.
+The packages subread, samtools, and deeptools.
 
 # Input data #
 Next, you should download the misha tracks from GEO for the .fastq files.
