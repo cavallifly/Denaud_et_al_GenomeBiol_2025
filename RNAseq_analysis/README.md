@@ -6,7 +6,7 @@ Install the following R packages: R.utils, Rsubread, xlsx, tidyverse, data.table
 The packages subread, samtools, and deeptools.
 
 # Input data #
-Next, you should download the misha tracks from GEO for the .fastq files.
+Next, you should download the .fastq files from GEO.
 - GSM8444494	WT_Repli1
 - GSM8444495	WT_Repli2
 - GSM8444496	WT_Repli3
